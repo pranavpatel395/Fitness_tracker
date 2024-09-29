@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://fitnesstrack-vtv1.onrender.com/api/",
+  baseURL: "http://localhost:8080/api/", // Change this to your local backend URL
 });
 
 export const UserSignUp = async (data) => API.post("/user/signup", data);

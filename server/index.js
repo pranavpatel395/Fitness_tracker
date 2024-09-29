@@ -7,7 +7,14 @@ import UserRoutes from "./routes/User.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000", // Allow requests from this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow these methods
+  credentials: true, // Allow sending cookies with requests if needed
+  allowedHeaders: "Content-Type,Authorization", // Allow these headers
+};
+
+app.use(cors(corsOptions));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true })); // for form data
 
